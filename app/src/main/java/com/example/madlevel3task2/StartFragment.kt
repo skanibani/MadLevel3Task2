@@ -10,12 +10,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_start.*
 import androidx.browser.customtabs.*
+import androidx.recyclerview.widget.ItemTouchHelper
 
 // Outside of fragment so that the list exists outside the fragment
 val portals = arrayListOf<Portal>()
 
 class StartFragment : Fragment() {
-    private val portalAdapter = PortalAdapter(portals)
+    private val portalAdapter = PortalAdapter(portals, { portalItem: Portal -> launchChromeTab(portalItem)})
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -57,11 +58,12 @@ class StartFragment : Fragment() {
 
     }
 
-    // Launches a Chrome tab with given URL.
-    private fun launchChromeTab(url: String) {
+    // Launches a Chrome tab with given Portal object.
+    private fun launchChromeTab(portalItem: Portal) {
         var customTabsIntent = CustomTabsIntent.Builder().build()
-        context?.let { customTabsIntent.launchUrl(it, Uri.parse(url)) }
+        context?.let { customTabsIntent.launchUrl(it, Uri.parse(portalItem.url)) }
     }
 
     // TODO TouchHelper for recyclerview
+
 }
