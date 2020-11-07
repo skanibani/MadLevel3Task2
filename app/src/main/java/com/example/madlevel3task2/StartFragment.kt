@@ -62,4 +62,6 @@ class StartFragment : Fragment() {
         var customTabsIntent = CustomTabsIntent.Builder().build()
         context?.let { customTabsIntent.launchUrl(it, Uri.parse(url)) }
     }
+
+    // TODO TouchHelper for recyclerview
 }
