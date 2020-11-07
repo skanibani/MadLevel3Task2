@@ -10,6 +10,7 @@ class PortalAdapter(private val portals: List<Portal>): RecyclerView.Adapter<Por
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
+        // Makes use of Kotlin synthetic.
         fun databind(portal: Portal) {
             itemView.portalTitle.text = portal.name
             itemView.portalURL.text = portal.url
