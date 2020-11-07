@@ -37,10 +37,8 @@ class CreatePortalFragment : Fragment() {
                 portalUrlEdit.text.toString()
         )
 
-        // TODO create bundle
         val bundle = bundleOf("portal" to newPortal)
 
-        // TODO pass bundle as navarg
         findNavController().navigate(R.id.action_CreatePortalFragment_to_StartFragment, bundle)
     }
 }
