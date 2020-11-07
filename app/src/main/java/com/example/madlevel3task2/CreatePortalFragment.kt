@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_create_portal.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -24,8 +26,21 @@ class CreatePortalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
+        portallAdd.setOnClickListener {
+            createPortal()
+        }
+    }
+
+    private fun createPortal() {
+        var newPortal = Portal(
+                portalNameEdit.text.toString(),
+                portalUrlEdit.text.toString()
+        )
+
+        // TODO create bundle
+        val bundle = bundleOf("portal" to newPortal)
+
+        // TODO pass bundle as navarg
+        findNavController().navigate(R.id.action_CreatePortalFragment_to_StartFragment, bundle)
     }
 }
