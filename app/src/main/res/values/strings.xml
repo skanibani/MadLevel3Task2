@@ -11,4 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="empty">Empty</string>
+
+    <string name="name_edit">Name</string>
+    <string name="url_edit">URL</string>
+    
+    <string name="add_portal">Add Portal</string>
 </resources>
